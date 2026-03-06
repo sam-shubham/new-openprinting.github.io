@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getLatestPosts, PostSummary } from "@/lib/posts";
+import { getLatestPosts } from "@/lib/posts";
 import authors from "@/data/authors";
 import { basePath } from "@/lib/utils";
 
