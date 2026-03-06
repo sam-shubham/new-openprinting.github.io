@@ -1,66 +1,44 @@
-"use client"
+import Link from "next/link";
+import { Github, Rss, Send, Mail } from "lucide-react";
 
-import { motion } from "framer-motion"
-import { Twitter, Github, Facebook, Rss } from "lucide-react"
+const links = [
+  { name: "GitHub", href: "https://github.com/OpenPrinting", icon: Github },
+  { name: "Mastodon", href: "https://ubuntu.social/tags/OpenPrinting", icon: Send },
+  { name: "Mailing Lists", href: "https://lore.kernel.org/printing-users/", icon: Mail },
+  { name: "RSS", href: "/feed", icon: Rss },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col items-center">
-          <div className="flex space-x-6 mb-8">
-            <motion.a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
-            >
-              <Twitter className="h-6 w-6" />
-              <span className="font-extrabold">Twitter</span>
-            </motion.a>
-            <motion.a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
-            >
-              <Github className="h-6 w-6" />
-              <span className="font-extrabold">GitHub</span>
-            </motion.a>
-            <motion.a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
-            >
-              <Facebook className="h-6 w-6" />
-              <span className="font-extrabold">Facebook</span>
-            </motion.a>
-            <motion.a
-              href="/feed"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
-            >
-              <Rss className="h-6 w-6" />
-              <span className="font-extrabold">Feed</span>
-            </motion.a>
-          </div>
+    <footer className="border-t border-gray-800 bg-black text-white">
+      <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          {links.map((item) => {
+            const Icon = item.icon;
+            return (
+              <a
+                key={item.name}
+                href={item.href}
+                target={item.href.startsWith("/") ? undefined : "_blank"}
+                rel={item.href.startsWith("/") ? undefined : "noopener noreferrer"}
+                className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white"
+              >
+                <Icon className="h-4 w-4" />
+                {item.name}
+              </a>
+            );
+          })}
+        </div>
 
-          <div className="text-gray-500 text-sm text-center">
-            <p>© {new Date().getFullYear()} OpenPrinting. All rights reserved.</p>
-            <p className="mt-1">Powered by Next.js and Tailwind CSS.</p>
-          </div>
+        <div className="mt-6 text-center text-xs text-gray-500">
+          <p>(c) {new Date().getFullYear()} OpenPrinting</p>
+          <p className="mt-1">
+            <Link href="/news" className="hover:text-gray-300">
+              Browse all news posts
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

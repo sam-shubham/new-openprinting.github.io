@@ -1,46 +1,25 @@
-"use client"
+import HeroSection from "@/components/hero-section";
+import InfoSection from "@/components/info-section";
+import ProjectsSection from "@/components/projects-section";
+import NewsSection from "@/components/news-section";
+import Footer from "@/components/footer";
+import { getLatestPosts } from "@/lib/posts";
 
-import { useEffect } from "react"
-import HeroSection from "@/components/hero-section"
-import InfoSection from "@/components/info-section"
-import ProjectsSection from "@/components/projects-section"
-import NewsSection from "@/components/news-section"
-import Footer from "@/components/footer"
-
-export default function Home() {
-  useEffect(() => {
-    // Add smooth scrolling behavior
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault()
-        // @ts-expect-error: 'this' is expected to be an HTMLAnchorElement
-        const href = this.getAttribute("href")
-        if (!href) return
-
-        const targetElement = document.querySelector(href)
-        if (!targetElement) return
-
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: "smooth",
-        })
-      })
-    })
-
-    return () => {
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.removeEventListener("click", () => {})
-      })
-    }
-  }, [])
+export default async function Home() {
+  const latestPosts = await getLatestPosts(3);
 
   return (
     <main className="min-h-screen bg-black text-white">
       <HeroSection />
-      <NewsSection />
+      <section className="border-b border-gray-800 bg-black py-6">
+        <div className="container mx-auto px-4 text-center text-sm text-gray-300 sm:px-6 md:text-base lg:px-8">
+          OpenPrinting develops IPP-based printing technology for Linux/Unix operating systems.
+        </div>
+      </section>
+      <NewsSection posts={latestPosts} />
       <InfoSection />
       <ProjectsSection />
       <Footer />
     </main>
-  )
+  );
 }
