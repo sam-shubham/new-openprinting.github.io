@@ -11,8 +11,8 @@ import { basePath, cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { name: "About Us", href: "#about" },
   { name: "News and Events", href: "#news" },
+  { name: "GSoC", href: "/gsoc" },
   { name: "Projects", href: "#projects" },
   { name: "Downloads", href: "#downloads" },
   { name: "Documentation", href: "#documentation" },

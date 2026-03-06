@@ -42,6 +42,7 @@ export default function ProjectsSection() {
         "OpenPrinting collaborates with the PWG's Internet Printing Protocol workgroup to support this ubiquitous printing standard.",
       image: `${basePath}/pwg.png`,
       delay: 0.1,
+      href: "https://www.pwg.org/",
     },
     {
       title: "GSoC - OpenPrinting",
@@ -49,6 +50,7 @@ export default function ProjectsSection() {
         "OpenPrinting participates in the GSoC program under its umbrella organization The Linux Foundation.",
       image: `${basePath}/gsoc.jpeg`,
       delay: 0.3,
+      href: "/gsoc",
     },
     {
       title: "GSoD - OpenPrinting",
@@ -56,6 +58,7 @@ export default function ProjectsSection() {
         "OpenPrinting participates in the GSoD program under its umbrella organization The Linux Foundation.",
       image: `${basePath}/gsod.jpg`,
       delay: 0.5,
+      href: "https://developers.google.com/season-of-docs",
     },
   ];
 
