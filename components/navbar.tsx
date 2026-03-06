@@ -11,11 +11,11 @@ import { basePath, cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { name: "News and Events", href: "#news" },
+  { name: "News", href: "/news" },
   { name: "GSoC", href: "/gsoc" },
-  { name: "Projects", href: "#projects" },
-  { name: "Downloads", href: "#downloads" },
-  { name: "Documentation", href: "#documentation" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Downloads", href: "/#downloads" },
+  { name: "Docs", href: "/#documentation" },
 ];
 
 export default function Navbar() {
