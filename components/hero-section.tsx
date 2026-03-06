@@ -90,7 +90,7 @@ export default function HeroSection() {
         OpenPrinting develops IPP-based printing technology for Linux®/Unix®
         operating systems.
       </h2>
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-16"></div>
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-16 mb-0"></div>
     </>
   );
 }
