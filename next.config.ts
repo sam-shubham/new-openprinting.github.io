@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === "production";
-const isVercel = process.env.VERCEL == '1'
+const isVercel = process.env.NEXT_PUBLIC_VERCEL == '1'
 
 
 
